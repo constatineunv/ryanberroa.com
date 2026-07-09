@@ -307,7 +307,7 @@ h2.section-title em{font-style:italic;color:var(--gold2)}
 .cf-field input:focus,.cf-field textarea:focus{border-color:rgba(201,168,76,.35);background:rgba(201,168,76,.05)}
 .cf-field input::placeholder,.cf-field textarea::placeholder{color:var(--soft)}
 .cf-hp{position:absolute;left:-9999px;top:-9999px;opacity:0;pointer-events:none}
-.contact-form .btn{border:none;cursor:pointer;align-self:flex-start}
+.contact-form .button{align-self:flex-start;margin-top:.2rem}
 .cf-note{font-size:.82rem;color:var(--gold2);min-height:1rem}
 @media(max-width:640px){.cf-row{grid-template-columns:1fr}}
 

@@ -369,11 +369,38 @@
               <span>LinkedIn</span>
               <strong>linkedin.com/in/mrberroa</strong>
             </a>
+            <a class="contact-box" href="mailto:contact@ryanberroa.com">
+              <span>Email</span>
+              <strong>contact@ryanberroa.com</strong>
+            </a>
             <a class="contact-box wide" href="assets/RyanBerroa_Resume.pdf" target="_blank" rel="noopener">
               <span>Resume</span>
               <strong>Download the current resume PDF ↗</strong>
             </a>
           </div>
+
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="cf-row">
+              <div class="cf-field">
+                <label for="cfName">Name</label>
+                <input id="cfName" name="name" placeholder="Your name" autocomplete="name" required>
+              </div>
+              <div class="cf-field">
+                <label for="cfEmail">Email</label>
+                <input id="cfEmail" name="email" type="email" placeholder="you@company.com" autocomplete="email">
+              </div>
+            </div>
+            <div class="cf-field cf-hp" aria-hidden="true">
+              <label for="cfWebsite">Website</label>
+              <input id="cfWebsite" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="cf-field">
+              <label for="cfMessage">Message</label>
+              <textarea id="cfMessage" name="message" rows="4" placeholder="What are you working on?" required></textarea>
+            </div>
+            <button class="btn btn-gold" type="submit">Send Message</button>
+            <div class="cf-note" id="cfNote" aria-live="polite"></div>
+          </form>
         </div>
       </div>
     </section>
@@ -423,6 +450,50 @@
     });
   }, { threshold: 0.12 });
   reveals.forEach(function(el){ io.observe(el); });
+
+  // Contact form — POST to the Rynexx lead pipeline (push notification)
+  var form = document.getElementById('contactForm');
+  if(form){
+    var note = document.getElementById('cfNote');
+    var btn  = form.querySelector('button[type="submit"]');
+    var loaded = Date.now();
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var get = function(n){ var f = form.querySelector('[name="'+n+'"]'); return f ? f.value.trim() : ''; };
+      var payload = {
+        name: get('name'),
+        email: get('email'),
+        message: get('message'),
+        website: get('website'),
+        t: loaded,
+        source: 'ryanberroa.com'
+      };
+      if(!payload.name || !payload.message){
+        if(note) note.textContent = 'Please fill in your name and message.';
+        return;
+      }
+      if(btn) btn.disabled = true;
+      if(note) note.textContent = 'Sending…';
+      fetch('https://rynexx.com/api/contact', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(payload)
+      }).then(function(r){ return r.json().catch(function(){ return {ok:false}; }); })
+        .then(function(res){
+          if(res.ok){
+            if(note) note.textContent = "Got it — I'll be in touch shortly.";
+            form.reset();
+            setTimeout(function(){ if(note) note.textContent = ''; }, 8000);
+          } else {
+            if(note) note.textContent = res.error || 'Something went wrong — please email contact@ryanberroa.com.';
+          }
+        })
+        .catch(function(){
+          if(note) note.textContent = 'Network error — please email contact@ryanberroa.com.';
+        })
+        .finally(function(){ if(btn) btn.disabled = false; });
+    });
+  }
 })();
 </script>
 </body>

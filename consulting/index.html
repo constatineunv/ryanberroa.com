@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consulting | Ryan Berroa — Firewall, Cloud &amp; Network Security Engineering</title>
+  <meta name="description" content="Independent network and firewall security engagements. Palo Alto and Panorama migrations, Azure and AWS network security, Zero Trust, BGP/OSPF/SD-WAN. 25+ years of enterprise infrastructure. Cutovers run in evening and weekend change windows." />
+  <meta name="theme-color" content="#070a0f" />
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="canonical" href="https://ryanberroa.com/consulting/" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ryanberroa.com/consulting/" />
+  <meta property="og:title" content="Consulting | Ryan Berroa — Firewall, Cloud &amp; Network Security Engineering" />
+  <meta property="og:description" content="Independent firewall, cloud, and network security engagements. Palo Alto, Panorama, Azure, Zero Trust, BGP/SD-WAN. Cutovers run in evening and weekend change windows." />
+  <meta property="og:image" content="https://ryanberroa.com/assets/headshot.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Consulting | Ryan Berroa" />
+  <meta name="twitter:description" content="Independent firewall, cloud, and network security engagements. 25+ years enterprise infrastructure." />
+  <meta name="twitter:image" content="https://ryanberroa.com/assets/headshot.jpeg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://ryanberroa.com/consulting/#service",
+    "name": "Ryan Berroa — Network &amp; Firewall Security Consulting",
+    "url": "https://ryanberroa.com/consulting/",
+    "image": "https://ryanberroa.com/assets/headshot.jpeg",
+    "email": "contact@ryanberroa.com",
+    "telephone": "+1-407-755-7193",
+    "areaServed": "US",
+    "availableLanguage": ["English", "Spanish"],
+    "priceRange": "$$$",
+    "provider": {
+      "@type": "Person",
+      "@id": "https://ryanberroa.com/#person",
+      "name": "Ryan Berroa",
+      "url": "https://ryanberroa.com/",
+      "image": "https://ryanberroa.com/assets/headshot.jpeg",
+      "jobTitle": "Senior Principal Security Engineer",
+      "email": "contact@ryanberroa.com",
+      "telephone": "+1-407-755-7193",
+      "sameAs": [
+        "https://www.linkedin.com/in/mrberroa/",
+        "https://rynexx.com/"
+      ],
+      "hasCredential": [
+        {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CCNP — Cisco Certified Network Professional"},
+        {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CCDP — Cisco Certified Design Professional"},
+        {"@type":"EducationalOccupationalCredential","credentialCategory":"certification","name":"CCNA"}
+      ],
+      "knowsAbout": ["Palo Alto Networks","Panorama","GlobalProtect","Prisma Access","Zero Trust","Azure","AWS","Oracle Cloud","BGP","OSPF","SD-WAN","Network Segmentation","PowerShell","Python"]
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Engagements",
+      "itemListElement": [
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Firewall migration and cutover","description":"Palo Alto and Panorama migrations, rule-base rebuilds, and edge cutovers executed in scheduled change windows."}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Cloud network security","description":"Azure, AWS, and OCI network security architecture — hub-and-spoke, transit routing, and Zero Trust segmentation."}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Security and network assessment","description":"Fixed-scope review of firewall policy, segmentation, and remote access, delivered as a prioritized remediation plan."}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Advisory retainer","description":"Standing engineering review, escalation support, and design guidance for internal IT teams."}}
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    /* Scoped to /consulting — the shared styles.css is untouched. */
+
+    /* Signature: the change-window strip. Cutovers happen at night; this says so in the
+       vernacular of a maintenance notice rather than as a sales line. */
+    .change-window{
+      display:grid;grid-template-columns:auto 1fr;gap:.55rem 1rem;align-items:baseline;
+      max-width:600px;margin:2.2rem 0 0;padding:1.15rem 1.4rem;border-radius:14px;
+      border:1px solid rgba(201,168,76,.22);
+      background:linear-gradient(90deg,rgba(201,168,76,.08),rgba(201,168,76,.02) 60%,transparent);
+      font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+      font-size:.78rem;letter-spacing:.03em;color:var(--muted);line-height:1.6;
+      animation:fadeUp .7s .5s ease both;
+    }
+    .cw-key{
+      display:flex;align-items:center;gap:.5rem;
+      color:var(--gold);font-weight:600;white-space:nowrap;
+    }
+    .cw-key::after{content:'::';color:var(--soft);font-weight:400}
+    .cw-live{
+      width:7px;height:7px;border-radius:99px;background:var(--gold);flex-shrink:0;
+      animation:pulse-ring 2.5s ease-in-out infinite;
+    }
+    /* Second row aligns under the first — the dot only leads the top line. */
+    .cw-key.cw-indent{padding-left:1.2rem}
+
+    /* Engagement models */
+    .engage-list{
+      border:1px solid var(--border);border-radius:20px;overflow:hidden;
+      background:rgba(255,255,255,.02);
+    }
+    .engage-row{
+      display:grid;grid-template-columns:1fr auto;gap:1.5rem 2rem;align-items:center;
+      padding:1.9rem 2.2rem;border-bottom:1px solid var(--border);transition:background .2s;
+    }
+    .engage-row:last-child{border-bottom:none}
+    .engage-row:hover{background:rgba(201,168,76,.04)}
+    .engage-name{font-family:var(--font-display);font-size:1.35rem;line-height:1.2;margin-bottom:.45rem}
+    .engage-desc{font-size:.9rem;color:var(--muted);line-height:1.75;max-width:60ch}
+    .engage-price{
+      font-family:var(--font-caps);font-size:1.75rem;letter-spacing:.04em;
+      color:var(--gold2);line-height:1;white-space:nowrap;text-align:right;
+    }
+    .engage-price small{
+      display:block;margin-top:6px;font-family:var(--font-sans);font-size:.62rem;
+      letter-spacing:.3em;text-transform:uppercase;color:var(--soft);font-weight:500;
+    }
+    .engage-foot{
+      margin-top:1.2rem;font-size:.85rem;color:var(--soft);line-height:1.8;font-weight:300;
+    }
+
+    /* Channel note — the MSP / VAR white-label lane */
+    .channel-note{
+      margin-top:1.2rem;padding:1.6rem 1.9rem;border-radius:18px;
+      border:1px dashed rgba(201,168,76,.28);background:rgba(201,168,76,.03);
+    }
+    .channel-note h3{font-family:var(--font-display);font-size:1.15rem;margin-bottom:.5rem}
+    .channel-note p{font-size:.9rem;color:var(--muted);line-height:1.8;font-weight:300}
+
+    /* Credentials strip */
+    .cred-strip{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.6rem}
+
+    @media(max-width:760px){
+      .engage-row{grid-template-columns:1fr;padding:1.6rem 1.4rem}
+      .engage-price{text-align:left}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .cw-live,.change-window{animation:none}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="../" class="brand">
+        <img src="../assets/logo.png" alt="Ryan Berroa" class="brand-logo" />
+        <div>
+          <div class="brand-name">Ryan Berroa</div>
+          <div class="brand-role">Security Engineer · Network Architect</div>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#engagements">Engagements</a>
+        <a href="#proof">Proof</a>
+        <a href="#start">Start</a>
+      </nav>
+      <a class="button btn-gold btn-small desktop-resume" href="#start">Start a Project</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="container mobile-menu-inner">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#engagements">Engagements</a>
+        <a href="#proof">Proof</a>
+        <a href="#start">Start a Project</a>
+        <a href="../">Back to ryanberroa.com</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero container">
+      <div class="hero-bg-text" aria-hidden="true">CUTOVER</div>
+
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <div class="label">Independent Engagements</div>
+
+          <h1>The cutover<br><em>goes clean.</em></h1>
+
+          <div class="hero-divider"></div>
+
+          <p class="hero-bio">
+            <strong>Ryan Berroa</strong> takes on a small number of firewall, cloud, and network security
+            engagements outside of full-time enterprise work — the migrations, segmentation projects, and
+            edge rebuilds that internal teams do not have the bandwidth or the scar tissue to run alone.
+            <strong>25+ years</strong> of enterprise infrastructure, most of it spent making high-risk changes
+            at 2 a.m. without breaking the business.
+          </p>
+
+          <!-- Signature element -->
+          <div class="change-window">
+            <span class="cw-key"><span class="cw-live" aria-hidden="true"></span>change window</span>
+            <span>evenings &amp; weekends</span>
+            <span class="cw-key cw-indent">rollback</span>
+            <span>planned before the first packet moves</span>
+          </div>
+
+          <div class="hero-actions" style="margin-top:2rem">
+            <a class="button btn-gold" href="#start">Start a Project</a>
+            <a class="button btn-ghost" href="#engagements">See Engagements</a>
+          </div>
+        </div>
+
+        <div class="hero-photo-frame">
+          <div class="hero-photo-inner">
+            <div class="hero-year">2026</div>
+            <img class="hero-photo" src="../assets/headshot.jpeg" alt="Ryan Berroa — Senior Principal Security Engineer" />
+            <div class="hero-badge">
+              <img src="../assets/logo.png" alt="Ryan Berroa logo" />
+              <div>
+                <div class="hero-badge-name">Ryan Berroa</div>
+                <div class="hero-badge-title">CCNP · CCDP · CCNA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section id="capabilities" class="section container">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:2.5rem" class="reveal">
+        <div>
+          <div class="label">What I Take On</div>
+          <h2 class="section-title">The work that<br><em>can't go wrong.</em></h2>
+        </div>
+        <p style="max-width:460px;color:var(--muted);font-size:.95rem;line-height:1.85;font-weight:300">
+          Engagements where a mistake takes the business offline — and where the plan matters as much as the config.
+        </p>
+      </div>
+
+      <div class="expertise-grid">
+        <article class="exp-card reveal reveal-delay-1">
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5.25-3.44 9.74-8 11-4.56-1.26-8-5.75-8-11V6l8-4zm0 4.18L7 8.69v3.22c0 3.78 2.32 7.25 5 8.39 2.68-1.14 5-4.61 5-8.39V8.69l-5-2.51z"/></svg>
+          </div>
+          <h3>Firewall Migration &amp; Cutover</h3>
+          <p>Palo Alto and Panorama migrations, rule-base rebuilds, GlobalProtect rollouts, and edge replacements — planned, staged, and cut over in a real change window with a tested rollback.</p>
+        </article>
+
+        <article class="exp-card reveal reveal-delay-2">
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24"><path d="M6 19h11a4 4 0 0 0 .2-8A6 6 0 0 0 5.2 9.6 4.5 4.5 0 0 0 6 19zm0-2a2.5 2.5 0 0 1-.16-5h1.22l.14-1.05A4 4 0 0 1 15.11 10l.23.98 1.01.08A2 2 0 0 1 17 17H6z"/></svg>
+          </div>
+          <h3>Cloud Network Security</h3>
+          <p>Azure, AWS, and OCI network architecture — hub-and-spoke design, transit routing, site-to-site connectivity, and Zero Trust segmentation that holds up after the project ends.</p>
+        </article>
+
+        <article class="exp-card reveal reveal-delay-3">
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+          </div>
+          <h3>Network Modernization</h3>
+          <p>BGP, OSPF, and SD-WAN across multi-site environments. Redundancy that actually fails over, segmentation that actually contains, and documentation your team can run without me.</p>
+        </article>
+
+        <article class="exp-card reveal">
+          <div class="exp-icon">
+            <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+          </div>
+          <h3>Assessment &amp; Remediation</h3>
+          <p>Policy review, rule-base cleanup, remote-access hardening, and compliance evidence — delivered as a prioritized plan with the risky items called out first, not a 90-page export.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ENGAGEMENTS -->
+    <section id="engagements" class="section container">
+      <div style="margin-bottom:2.5rem" class="reveal">
+        <div class="label">Engagement Models</div>
+        <h2 class="section-title">Scoped first.<br>Then <em>priced.</em></h2>
+      </div>
+
+      <div class="engage-list reveal">
+        <div class="engage-row">
+          <div>
+            <div class="engage-name">Assessment</div>
+            <div class="engage-desc">Fixed scope, fixed fee. I review the firewall policy, segmentation, and remote access, then hand back a prioritized remediation plan. Most clients start here.</div>
+          </div>
+          <div class="engage-price">from $3,500<small>Fixed fee</small></div>
+        </div>
+
+        <div class="engage-row">
+          <div>
+            <div class="engage-name">Project &amp; Cutover</div>
+            <div class="engage-desc">Migration, rebuild, or new deployment — design, build, stage, cut over, and hand off. Priced per project once the scope is real, never before.</div>
+          </div>
+          <div class="engage-price">from $4,500<small>Per project</small></div>
+        </div>
+
+        <div class="engage-row">
+          <div>
+            <div class="engage-name">Advisory Retainer</div>
+            <div class="engage-desc">A senior engineer your team can escalate to. Design review, second opinions on risky changes, and a standing block of hours each month.</div>
+          </div>
+          <div class="engage-price">from $2,500<small>Per month</small></div>
+        </div>
+
+        <div class="engage-row">
+          <div>
+            <div class="engage-name">Hourly</div>
+            <div class="engage-desc">For focused work that doesn't need a project wrapper. Evening, weekend, and emergency change windows — which is when most cutovers happen anyway.</div>
+          </div>
+          <div class="engage-price">from $185<small>Per hour</small></div>
+        </div>
+      </div>
+
+      <p class="engage-foot">
+        Every engagement starts with a scoping call — no charge. A detailed rate sheet is available on request.
+      </p>
+
+      <div class="channel-note reveal">
+        <h3>MSPs &amp; VARs: white-label overflow</h3>
+        <p>
+          If you've won Palo Alto, Azure, or network security work you can't staff this quarter, I take
+          subcontract and white-label delivery under your brand. Your client relationship stays yours.
+          Reach out and we'll set terms.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section id="proof" class="section container">
+      <div style="margin-bottom:2.5rem" class="reveal">
+        <div class="label">Proof</div>
+        <h2 class="section-title">Verify before<br>you <em>hire.</em></h2>
+      </div>
+
+      <div class="impact-bar reveal">
+        <div class="impact-item">
+          <div class="impact-tag">Track Record</div>
+          <h3>25+ Years, Enterprise Scale</h3>
+          <p>Corporate, manufacturing, distribution, cloud, and remote-access environments at Fortune 500 scale — not lab work.</p>
+        </div>
+        <div class="impact-item">
+          <div class="impact-tag">Credentials</div>
+          <h3>CCNP · CCDP · CCNA</h3>
+          <p>Cisco Certified Network Professional and Design Professional. Deep production experience across Palo Alto, Panorama, Prisma Access, and Zscaler.</p>
+        </div>
+        <div class="impact-item">
+          <div class="impact-tag">Delivery</div>
+          <h3>Shipped, Not Slideware</h3>
+          <p>Built and maintains production web and business systems as well as network infrastructure. The résumé and the work are both public.</p>
+        </div>
+      </div>
+
+      <div class="cred-strip reveal">
+        <div class="tech-pill"><span class="dot palo"></span>Palo Alto NGFW</div>
+        <div class="tech-pill"><span class="dot panorama"></span>Panorama</div>
+        <div class="tech-pill"><span class="dot gp"></span>GlobalProtect</div>
+        <div class="tech-pill"><span class="dot azure"></span>Azure</div>
+        <div class="tech-pill"><span class="dot aws"></span>AWS</div>
+        <div class="tech-pill"><span class="dot zt"></span>Zero Trust</div>
+        <div class="tech-pill"><span class="dot sdwan"></span>SD-WAN</div>
+        <div class="tech-pill"><span class="dot bgp"></span>BGP</div>
+        <div class="tech-pill"><span class="dot cisco"></span>Cisco</div>
+        <div class="tech-pill"><span class="dot ps"></span>PowerShell</div>
+        <div class="tech-pill"><span class="dot py"></span>Python</div>
+      </div>
+
+      <div class="web-grid reveal" style="margin-top:2rem">
+        <article class="web-card">
+          <div class="web-card-top">
+            <div class="web-icon">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm0 2.5L17.5 8H14V4.5zM8 13h8v2H8v-2zm0 4h8v2H8v-2zm0-8h4v2H8V9z"/></svg>
+            </div>
+            <div>
+              <div class="web-card-name">The Résumé</div>
+              <div class="web-card-desc">Full background, current</div>
+            </div>
+          </div>
+          <p>Every role, platform, and certification listed above is on the record. Read it before the scoping call, not after.</p>
+          <a href="../assets/RyanBerroa_Resume.pdf" target="_blank" rel="noopener" class="web-card-link">Open the resume</a>
+        </article>
+
+        <article class="web-card">
+          <div class="web-card-top">
+            <div class="web-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.93 9h-3.02a15.6 15.6 0 00-1.09-4.13A8.03 8.03 0 0118.93 11zM12 4c.82 0 2.04 1.68 2.72 5H9.28C9.96 5.68 11.18 4 12 4zM6.18 17A15.58 15.58 0 015.07 13h3.02c.12 1.48.5 2.88 1.09 4.13A8.03 8.03 0 016.18 17zm1.91-6H5.07a8.03 8.03 0 014.11-4.13A15.6 15.6 0 008.09 11zm3.91 9c-.82 0-2.04-1.68-2.72-5h5.44c-.68 3.32-1.9 5-2.72 5z"/></svg>
+            </div>
+            <div>
+              <div class="web-card-name">Shipped Work</div>
+              <div class="web-card-desc">Rynexx · The Reese Firm</div>
+            </div>
+          </div>
+          <p>Production systems built and maintained outside the day job — the same standard of delivery applied to a different stack.</p>
+          <a href="../#projects" class="web-card-link">See the projects</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- START -->
+    <section id="start" class="section container">
+      <div class="contact-layout reveal">
+        <div class="contact-brand">
+          <img src="../assets/logo.png" alt="Ryan Berroa" class="contact-brand-logo" />
+          <div>
+            <h2>Tell me what<br><em>breaks</em> if this<br>goes wrong.</h2>
+            <p style="margin-top:1rem">
+              That's the first question on every call, and it's how the scope gets built. Send the shape of the
+              problem — the platform, the deadline, the blast radius — and I'll tell you honestly whether I'm
+              the right person for it.
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-panel">
+          <div class="label">Start a Project</div>
+          <h2>Scoping call, no charge.</h2>
+          <p>Messages come straight to my phone. Expect a reply within a day — same day if it's an active outage.</p>
+
+          <div class="contact-links">
+            <a class="contact-box" href="mailto:contact@ryanberroa.com">
+              <span>Email</span>
+              <strong>contact@ryanberroa.com</strong>
+            </a>
+            <a class="contact-box" href="tel:+14077557193">
+              <span>Phone</span>
+              <strong>(407) 755-7193</strong>
+            </a>
+            <a class="contact-box wide" href="https://www.linkedin.com/in/mrberroa/" target="_blank" rel="noopener">
+              <span>LinkedIn</span>
+              <strong>linkedin.com/in/mrberroa ↗</strong>
+            </a>
+          </div>
+
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="cf-row">
+              <div class="cf-field">
+                <label for="cfName">Name</label>
+                <input id="cfName" name="name" placeholder="Your name" autocomplete="name" required>
+              </div>
+              <div class="cf-field">
+                <label for="cfEmail">Email</label>
+                <input id="cfEmail" name="email" type="email" placeholder="you@company.com" autocomplete="email">
+              </div>
+            </div>
+            <div class="cf-field cf-hp" aria-hidden="true">
+              <label for="cfWebsite">Website</label>
+              <input id="cfWebsite" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="cf-field">
+              <label for="cfMessage">The project</label>
+              <textarea id="cfMessage" name="message" rows="4" placeholder="Platform, timeline, and what's at stake." required></textarea>
+            </div>
+            <button class="button btn-gold" type="submit">Send Message →</button>
+            <div class="cf-note" id="cfNote" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div>
+        <div class="footer-name">Ryan Berroa</div>
+        <div class="footer-sub">Security Engineer · Network Architect</div>
+      </div>
+      <div class="footer-links">
+        <a href="../">ryanberroa.com</a>
+        <a href="https://www.linkedin.com/in/mrberroa/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../assets/RyanBerroa_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="https://rynexx.com/" target="_blank" rel="noopener">Rynexx</a>
+      </div>
+      <div class="footer-copy">© 2026 Ryan Berroa</div>
+    </div>
+  </footer>
+
+<script>
+(function(){
+  // Mobile menu
+  var toggle = document.getElementById('menu-toggle');
+  var menu   = document.getElementById('mobile-menu');
+  if(toggle && menu){
+    toggle.addEventListener('click', function(){
+      var open = menu.classList.toggle('open');
+      toggle.classList.toggle('active', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Scroll reveal
+  var reveals = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(function(el){ io.observe(el); });
+
+  // Contact form — same lead pipeline as the homepage
+  var form = document.getElementById('contactForm');
+  if(form){
+    var note = document.getElementById('cfNote');
+    var btn  = form.querySelector('button[type="submit"]');
+    var loaded = Date.now();
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var get = function(n){ var f = form.querySelector('[name="'+n+'"]'); return f ? f.value.trim() : ''; };
+      var payload = {
+        name: get('name'),
+        email: get('email'),
+        message: get('message'),
+        website: get('website'),
+        t: loaded,
+        source: 'ryanberroa.com/consulting'
+      };
+      if(!payload.name || !payload.message){
+        if(note) note.textContent = 'Please fill in your name and the project details.';
+        return;
+      }
+      if(btn) btn.disabled = true;
+      if(note) note.textContent = 'Sending…';
+      fetch('https://rynexx.com/api/contact', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(payload)
+      }).then(function(r){ return r.json().catch(function(){ return {ok:false}; }); })
+        .then(function(res){
+          if(res.ok){
+            if(note) note.textContent = "Got it — I'll be in touch shortly.";
+            form.reset();
+            setTimeout(function(){ if(note) note.textContent = ''; }, 8000);
+          } else {
+            if(note) note.textContent = res.error || 'Something went wrong — please email contact@ryanberroa.com.';
+          }
+        })
+        .catch(function(){
+          if(note) note.textContent = 'Network error — please email contact@ryanberroa.com.';
+        })
+        .finally(function(){ if(btn) btn.disabled = false; });
+    });
+  }
+})();
+</script>
+</body>
+</html>

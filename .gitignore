@@ -137,3 +137,9 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Private sibling apps published as their own Cloudflare Pages projects.
+# These must NOT ship in the public ryanberroa.com deploy.
+soundcheck.ryanberroa.com/
+greenroom.ryanberroa.com/
+.wrangler/
